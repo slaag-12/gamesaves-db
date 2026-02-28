@@ -1,0 +1,47 @@
+name: "🎮 Update Game Save Database"
+
+on:
+  schedule:
+    # Jeden Sonntag um 03:00 UTC (04:00 MEZ)
+    - cron: '0 3 * * 0'
+  workflow_dispatch:  # Manuell auslösbar
+
+permissions:
+  contents: write
+
+jobs:
+  update-database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: 🐍 Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 🔍 Scraper ausführen
+        run: python scraper.py
+
+      - name: 📊 Änderungen prüfen
+        id: check
+        run: |
+          if git diff --quiet gamesaves.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Keine neuen Spiele gefunden."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            NEW_COUNT=$(python -c "import json; d=json.load(open('gamesaves.json')); print(len(d['games']))")
+            echo "count=$NEW_COUNT" >> $GITHUB_OUTPUT
+            echo "$NEW_COUNT Spiele in der Datenbank."
+          fi
+
+      - name: 📤 Änderungen committen
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Action Bot"
+          git config user.email "action@github.com"
+          git add gamesaves.json
+          git commit -m "🎮 Auto-Update: ${{ steps.check.outputs.count }} Spiele (${{ github.event.schedule && 'weekly' || 'manual' }})"
+          git push
