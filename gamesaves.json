@@ -1,156 +1,1230 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "updated": "2026-02-28",
   "games": [
-    { "folder": "My Games/Skyrim", "name": "The Elder Scrolls V: Skyrim", "icon": "⚔️", "location": "documents" },
-    { "folder": "My Games/Skyrim Special Edition", "name": "Skyrim Special Edition", "icon": "⚔️", "location": "documents" },
-    { "folder": "My Games/Fallout4", "name": "Fallout 4", "icon": "☢️", "location": "documents" },
-    { "folder": "My Games/FalloutNV", "name": "Fallout: New Vegas", "icon": "☢️", "location": "documents" },
-    { "folder": "My Games/Fallout3", "name": "Fallout 3", "icon": "☢️", "location": "documents" },
-    { "folder": "My Games/Oblivion", "name": "The Elder Scrolls IV: Oblivion", "icon": "⚔️", "location": "documents" },
-    { "folder": "My Games/Starfield", "name": "Starfield", "icon": "🚀", "location": "documents" },
-    { "folder": "My Games/Morrowind", "name": "The Elder Scrolls III: Morrowind", "icon": "⚔️", "location": "documents" },
-
-    { "folder": "Rockstar Games/GTA V/Profiles", "name": "Grand Theft Auto V", "icon": "🚗", "location": "documents" },
-    { "folder": "Rockstar Games/Red Dead Redemption 2", "name": "Red Dead Redemption 2", "icon": "🤠", "location": "documents" },
-    { "folder": "Rockstar Games/Social Club", "name": "Rockstar Social Club", "icon": "🎮", "location": "documents" },
-
-    { "folder": "Paradox Interactive/Crusader Kings III", "name": "Crusader Kings III", "icon": "👑", "location": "documents" },
-    { "folder": "Paradox Interactive/Europa Universalis IV", "name": "Europa Universalis IV", "icon": "🌍", "location": "documents" },
-    { "folder": "Paradox Interactive/Hearts of Iron IV", "name": "Hearts of Iron IV", "icon": "⚙️", "location": "documents" },
-    { "folder": "Paradox Interactive/Stellaris", "name": "Stellaris", "icon": "🌌", "location": "documents" },
-    { "folder": "Paradox Interactive/Victoria 3", "name": "Victoria 3", "icon": "🏭", "location": "documents" },
-    { "folder": "Paradox Interactive/Cities Skylines", "name": "Cities: Skylines", "icon": "🏙️", "location": "documents" },
-    { "folder": "Paradox Interactive/Cities Skylines II", "name": "Cities: Skylines II", "icon": "🏙️", "location": "documents" },
-
-    { "folder": "Assassin's Creed Valhalla", "name": "Assassin's Creed Valhalla", "icon": "🗡️", "location": "documents" },
-    { "folder": "Assassin's Creed Odyssey", "name": "Assassin's Creed Odyssey", "icon": "⚔️", "location": "documents" },
-    { "folder": "Assassin's Creed Origins", "name": "Assassin's Creed Origins", "icon": "🏺", "location": "documents" },
-    { "folder": "Assassin's Creed Mirage", "name": "Assassin's Creed Mirage", "icon": "🗡️", "location": "documents" },
-    { "folder": "Far Cry 5", "name": "Far Cry 5", "icon": "🏔️", "location": "documents" },
-    { "folder": "Far Cry 6", "name": "Far Cry 6", "icon": "🌴", "location": "documents" },
-
-    { "folder": "BioWare/Mass Effect Legendary Edition", "name": "Mass Effect Legendary Edition", "icon": "🚀", "location": "documents" },
-    { "folder": "BioWare/Dragon Age Inquisition", "name": "Dragon Age: Inquisition", "icon": "🐉", "location": "documents" },
-    { "folder": "BioWare/Dragon Age The Veilguard", "name": "Dragon Age: The Veilguard", "icon": "🐉", "location": "documents" },
-    { "folder": "Electronic Arts/The Sims 4", "name": "Die Sims 4", "icon": "🏠", "location": "documents" },
-
-    { "folder": "CD Projekt Red/Cyberpunk 2077", "name": "Cyberpunk 2077", "icon": "🤖", "location": "documents" },
-    { "folder": "The Witcher 3", "name": "The Witcher 3: Wild Hunt", "icon": "🐺", "location": "documents" },
-
-    { "folder": "EldenRing", "name": "Elden Ring", "icon": "💍", "location": "documents" },
-    { "folder": "DARKSOULS III", "name": "Dark Souls III", "icon": "🔥", "location": "documents" },
-    { "folder": "DarkSoulsII", "name": "Dark Souls II", "icon": "🔥", "location": "documents" },
-    { "folder": "NBGI/DarkSouls", "name": "Dark Souls", "icon": "🔥", "location": "documents" },
-    { "folder": "Sekiro", "name": "Sekiro: Shadows Die Twice", "icon": "⚔️", "location": "documents" },
-    { "folder": "ArmoredCore6", "name": "Armored Core VI", "icon": "🤖", "location": "documents" },
-
-    { "folder": "My Games/Terraria", "name": "Terraria", "icon": "⛏️", "location": "documents" },
-    { "folder": "My Games/Stardew Valley", "name": "Stardew Valley", "icon": "🌾", "location": "documents" },
-    { "folder": "Klei/DoNotStarve", "name": "Don't Starve", "icon": "🔥", "location": "documents" },
-    { "folder": "Klei/DoNotStarveTogether", "name": "Don't Starve Together", "icon": "🔥", "location": "documents" },
-    { "folder": "Celeste", "name": "Celeste", "icon": "🍓", "location": "documents" },
-    { "folder": "Hollow Knight", "name": "Hollow Knight", "icon": "🦋", "location": "documents" },
-    { "folder": "HadesII", "name": "Hades II", "icon": "🔥", "location": "documents" },
-    { "folder": "Hades", "name": "Hades", "icon": "🔥", "location": "documents" },
-    { "folder": "Cuphead", "name": "Cuphead", "icon": "☕", "location": "documents" },
-    { "folder": "Dead Cells", "name": "Dead Cells", "icon": "⚔️", "location": "documents" },
-    { "folder": "Ori and the Blind Forest", "name": "Ori and the Blind Forest", "icon": "🌿", "location": "documents" },
-    { "folder": "Ori and the Will of the Wisps", "name": "Ori and the Will of the Wisps", "icon": "🌿", "location": "documents" },
-
-    { "folder": "My Games/Sid Meier's Civilization VI", "name": "Civilization VI", "icon": "🏛️", "location": "documents" },
-    { "folder": "My Games/Sid Meier's Civilization 5", "name": "Civilization V", "icon": "🏛️", "location": "documents" },
-    { "folder": "My Games/XCOM2", "name": "XCOM 2", "icon": "👽", "location": "documents" },
-    { "folder": "My Games/XCOM - Enemy Within", "name": "XCOM: Enemy Within", "icon": "👽", "location": "documents" },
-    { "folder": "SimCity", "name": "SimCity", "icon": "🏙️", "location": "documents" },
-    { "folder": "RimWorld by Ludeon Studios", "name": "RimWorld", "icon": "🌍", "location": "documents" },
-    { "folder": "Factorio", "name": "Factorio", "icon": "⚙️", "location": "documents" },
-    { "folder": "My Games/Company of Heroes 2", "name": "Company of Heroes 2", "icon": "🪖", "location": "documents" },
-    { "folder": "My Games/Company of Heroes 3", "name": "Company of Heroes 3", "icon": "🪖", "location": "documents" },
-    { "folder": "My Games/Age of Empires 2 DE", "name": "Age of Empires II: DE", "icon": "🏰", "location": "documents" },
-    { "folder": "My Games/Age of Empires IV", "name": "Age of Empires IV", "icon": "🏰", "location": "documents" },
-    { "folder": "Total War Saga", "name": "Total War Saga", "icon": "⚔️", "location": "documents" },
-    { "folder": "The Creative Assembly/Warhammer3", "name": "Total War: Warhammer III", "icon": "⚔️", "location": "documents" },
-    { "folder": "My Games/Bannerlord", "name": "Mount & Blade II: Bannerlord", "icon": "🏰", "location": "documents" },
-
-    { "folder": "My Games/Subnautica", "name": "Subnautica", "icon": "🐠", "location": "documents" },
-    { "folder": "My Games/They Are Billions", "name": "They Are Billions", "icon": "🧟", "location": "documents" },
-    { "folder": "My Games/The Forest", "name": "The Forest", "icon": "🌲", "location": "documents" },
-    { "folder": "My Games/Grounded", "name": "Grounded", "icon": "🐜", "location": "documents" },
-
-    { "folder": "My Games/Forza Horizon 5", "name": "Forza Horizon 5", "icon": "🏎️", "location": "documents" },
-    { "folder": "My Games/Forza Horizon 4", "name": "Forza Horizon 4", "icon": "🏎️", "location": "documents" },
-    { "folder": "My Games/Need for Speed Heat", "name": "Need for Speed Heat", "icon": "🏎️", "location": "documents" },
-
-    { "folder": "My Games/Borderlands 3", "name": "Borderlands 3", "icon": "🔫", "location": "documents" },
-    { "folder": "My Games/Borderlands 2", "name": "Borderlands 2", "icon": "🔫", "location": "documents" },
-    { "folder": "My Games/Doom Eternal", "name": "Doom Eternal", "icon": "👹", "location": "documents" },
-    { "folder": "My Games/Warframe", "name": "Warframe", "icon": "🤖", "location": "documents" },
-    { "folder": "Call of Duty", "name": "Call of Duty", "icon": "🔫", "location": "documents" },
-
-    { "folder": "World of Warcraft", "name": "World of Warcraft", "icon": "⚔️", "location": "documents" },
-    { "folder": "Diablo IV", "name": "Diablo IV", "icon": "😈", "location": "documents" },
-    { "folder": "Diablo III", "name": "Diablo III", "icon": "😈", "location": "documents" },
-    { "folder": "Overwatch 2", "name": "Overwatch 2", "icon": "🎯", "location": "documents" },
-    { "folder": "Hearthstone", "name": "Hearthstone", "icon": "🃏", "location": "documents" },
-    { "folder": "StarCraft II", "name": "StarCraft II", "icon": "🌌", "location": "documents" },
-
-    { "folder": "Larian Studios/Baldur's Gate 3", "name": "Baldur's Gate 3", "icon": "🐉", "location": "documents" },
-    { "folder": "Kingdom Come Deliverance", "name": "Kingdom Come: Deliverance", "icon": "⚔️", "location": "documents" },
-    { "folder": "Hogwarts Legacy", "name": "Hogwarts Legacy", "icon": "🧙", "location": "documents" },
-    { "folder": "Palworld", "name": "Palworld", "icon": "🐾", "location": "documents" },
-    { "folder": "Enshrouded", "name": "Enshrouded", "icon": "🌫️", "location": "documents" },
-    { "folder": "Satisfactory", "name": "Satisfactory", "icon": "🏭", "location": "documents" },
-    { "folder": "No Man's Sky", "name": "No Man's Sky", "icon": "🚀", "location": "documents" },
-    { "folder": "Deep Rock Galactic", "name": "Deep Rock Galactic", "icon": "⛏️", "location": "documents" },
-    { "folder": "Valheim", "name": "Valheim", "icon": "🪓", "location": "documents" },
-    { "folder": "Dying Light 2", "name": "Dying Light 2", "icon": "🧟", "location": "documents" },
-    { "folder": "My Games/Rocket League", "name": "Rocket League", "icon": "⚽", "location": "documents" },
-    { "folder": "Sport Interactive/Football Manager 2024", "name": "Football Manager 2024", "icon": "⚽", "location": "documents" },
-    { "folder": "Sport Interactive/Football Manager 2025", "name": "Football Manager 2025", "icon": "⚽", "location": "documents" },
-    { "folder": "Wube Software/Factorio", "name": "Factorio (Saves)", "icon": "⚙️", "location": "documents" },
-    { "folder": "My Games/Unreal Tournament 3", "name": "Unreal Tournament 3", "icon": "🔫", "location": "documents" },
-    { "folder": "My Games/Beat Saber", "name": "Beat Saber", "icon": "🎵", "location": "documents" },
-    { "folder": "My Games/Half-Life Alyx", "name": "Half-Life: Alyx", "icon": "🔫", "location": "documents" },
-    { "folder": "Remnant2", "name": "Remnant 2", "icon": "⚔️", "location": "documents" },
-    { "folder": "Remnant/Saved", "name": "Remnant: From the Ashes", "icon": "⚔️", "location": "documents" },
-    { "folder": "Lethal Company", "name": "Lethal Company", "icon": "👻", "location": "documents" },
-    { "folder": "Phasmophobia", "name": "Phasmophobia", "icon": "👻", "location": "documents" },
-    { "folder": "My Games/Snowrunner", "name": "SnowRunner", "icon": "🚛", "location": "documents" },
-    { "folder": "Euro Truck Simulator 2", "name": "Euro Truck Simulator 2", "icon": "🚛", "location": "documents" },
-    { "folder": "American Truck Simulator", "name": "American Truck Simulator", "icon": "🚛", "location": "documents" },
-    { "folder": "My Games/Farming Simulator 22", "name": "Farming Simulator 22", "icon": "🚜", "location": "documents" },
-    { "folder": "My Games/Farming Simulator 25", "name": "Farming Simulator 25", "icon": "🚜", "location": "documents" },
-    { "folder": "Klei/Oxygen Not Included", "name": "Oxygen Not Included", "icon": "🫧", "location": "documents" },
-    { "folder": "Outer Wilds", "name": "Outer Wilds", "icon": "🪐", "location": "documents" },
-    { "folder": "My Games/Divinity Original Sin 2", "name": "Divinity: Original Sin 2", "icon": "🐉", "location": "documents" },
-
-    { "folder": "Elden Ring", "name": "Elden Ring", "icon": "💍", "location": "appdata_roaming" },
-    { "folder": "DARK SOULS III", "name": "Dark Souls III", "icon": "🔥", "location": "appdata_roaming" },
-    { "folder": "FortniteGame", "name": "Fortnite", "icon": "🔫", "location": "appdata_local" },
-    { "folder": "Larian Studios/Baldur's Gate 3", "name": "Baldur's Gate 3", "icon": "🐉", "location": "appdata_local" },
-    { "folder": "Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe", "name": "Minecraft (Windows)", "icon": "⛏️", "location": "appdata_local" },
-    { "folder": ".minecraft", "name": "Minecraft Java Edition", "icon": "⛏️", "location": "appdata_roaming" },
-    { "folder": "factorio", "name": "Factorio", "icon": "⚙️", "location": "appdata_roaming" },
-    { "folder": "StardewValley", "name": "Stardew Valley", "icon": "🌾", "location": "appdata_roaming" },
-    { "folder": "Team Cherry/Hollow Knight", "name": "Hollow Knight", "icon": "🦋", "location": "appdata_locallow" },
-    { "folder": "IronGate/Valheim", "name": "Valheim", "icon": "🪓", "location": "appdata_locallow" },
-    { "folder": "Endnight/SonsOfTheForest", "name": "Sons of the Forest", "icon": "🌲", "location": "appdata_locallow" },
-    { "folder": "Redbeet Interactive/Raft", "name": "Raft", "icon": "🚣", "location": "appdata_locallow" },
-    { "folder": "ConcernedApe/Stardew Valley", "name": "Stardew Valley", "icon": "🌾", "location": "appdata_locallow" },
-    { "folder": "Supergiant Games/Hades2", "name": "Hades II", "icon": "🔥", "location": "appdata_locallow" },
-    { "folder": "Supergiant Games/Hades", "name": "Hades", "icon": "🔥", "location": "appdata_locallow" },
-    { "folder": "Colossal Order/Cities Skylines", "name": "Cities: Skylines (AppData)", "icon": "🏙️", "location": "appdata_local" },
-    { "folder": "Respawn/Apex", "name": "Apex Legends", "icon": "🎯", "location": "appdata_local" },
-    { "folder": "Hogwarts Legacy", "name": "Hogwarts Legacy (AppData)", "icon": "🧙", "location": "appdata_local" },
-    { "folder": "Celeste", "name": "Celeste (AppData)", "icon": "🍓", "location": "appdata_local" },
-    { "folder": "Thunderstore", "name": "Thunderstore Mod Manager", "icon": "🔧", "location": "appdata_roaming" },
-    { "folder": "GodotEngine", "name": "Godot Engine", "icon": "🎮", "location": "appdata_roaming" },
-    { "folder": "unity3d", "name": "Unity-Spiele (Allgemein)", "icon": "🎮", "location": "appdata_locallow" },
-    { "folder": "Klei/DoNotStarveTogether", "name": "Don't Starve Together", "icon": "🔥", "location": "appdata_local" },
-    { "folder": "Among Us", "name": "Among Us", "icon": "🚀", "location": "appdata_locallow" },
-    { "folder": "Coffee Stain Studios/Satisfactory", "name": "Satisfactory (AppData)", "icon": "🏭", "location": "appdata_local" },
-    { "folder": "Fatshark/Darktide", "name": "Warhammer 40K: Darktide", "icon": "⚔️", "location": "appdata_roaming" },
-    { "folder": "TaleWorlds/Mount and Blade II Bannerlord", "name": "Mount & Blade II: Bannerlord", "icon": "🏰", "location": "appdata_local" }
+    {
+      "folder": "GOG.com/Galaxy/Applications/55243620139303375/Storage/Shared/Files",
+      "name": "A Plague Tale: Requiem",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Eremite Games/Against the Storm",
+      "name": "Against the Storm",
+      "icon": "🎮",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "My Games/Age of Empires 2 DE",
+      "name": "Age of Empires II: DE",
+      "icon": "🏰",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Age of Empires IV",
+      "name": "Age of Empires IV",
+      "icon": "🏰",
+      "location": "documents"
+    },
+    {
+      "folder": "Remedy/AlanWakeRemastered",
+      "name": "Alan Wake Remastered",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "American Truck Simulator",
+      "name": "American Truck Simulator",
+      "icon": "🚛",
+      "location": "documents"
+    },
+    {
+      "folder": "Among Us",
+      "name": "Among Us",
+      "icon": "🚀",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "Anno 1800/accounts",
+      "name": "Anno 1800",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Respawn/Apex",
+      "name": "Apex Legends",
+      "icon": "🎯",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Arma 3/*.Arma3Profile|{{p|userprofile/Documents",
+      "name": "Arma 3",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "ArmoredCore6",
+      "name": "Armored Core VI",
+      "icon": "🤖",
+      "location": "documents"
+    },
+    {
+      "folder": "ArmoredCore6/{{p|uid",
+      "name": "Armored Core VI: Fires of Rubicon",
+      "icon": "🎮",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Assassin's Creed Mirage",
+      "name": "Assassin's Creed Mirage",
+      "icon": "🗡️",
+      "location": "documents"
+    },
+    {
+      "folder": "Assassin's Creed Odyssey",
+      "name": "Assassin's Creed Odyssey",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Assassin's Creed Origins",
+      "name": "Assassin's Creed Origins",
+      "icon": "🏺",
+      "location": "documents"
+    },
+    {
+      "folder": "Assassin's Creed Valhalla",
+      "name": "Assassin's Creed Valhalla",
+      "icon": "🗡️",
+      "location": "documents"
+    },
+    {
+      "folder": "Larian Studios/Baldur's Gate 3",
+      "name": "Baldur's Gate 3",
+      "icon": "🐉",
+      "location": "documents"
+    },
+    {
+      "folder": "Larian Studios/Baldur's Gate 3",
+      "name": "Baldur's Gate 3",
+      "icon": "🐉",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Banishers Ghosts of New Eden/Saved/SaveGames/Steam/{{p|UID",
+      "name": "Banishers: Ghosts of New Eden",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Beat Saber",
+      "name": "Beat Saber",
+      "icon": "🎵",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Borderlands 2",
+      "name": "Borderlands 2",
+      "icon": "🔫",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Borderlands 3",
+      "name": "Borderlands 3",
+      "icon": "🔫",
+      "location": "documents"
+    },
+    {
+      "folder": "Call of Duty",
+      "name": "Call of Duty",
+      "icon": "🔫",
+      "location": "documents"
+    },
+    {
+      "folder": "Celeste",
+      "name": "Celeste",
+      "icon": "🍓",
+      "location": "documents"
+    },
+    {
+      "folder": "Celeste",
+      "name": "Celeste (AppData)",
+      "icon": "🍓",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Paradox Interactive/Cities Skylines",
+      "name": "Cities: Skylines",
+      "icon": "🏙️",
+      "location": "documents"
+    },
+    {
+      "folder": "Colossal Order/Cities Skylines",
+      "name": "Cities: Skylines (AppData)",
+      "icon": "🏙️",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Paradox Interactive/Cities Skylines II",
+      "name": "Cities: Skylines II",
+      "icon": "🏙️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Sid Meier's Civilization 5",
+      "name": "Civilization V",
+      "icon": "🏛️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Sid Meier's Civilization VI",
+      "name": "Civilization VI",
+      "icon": "🏛️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Company of Heroes 2",
+      "name": "Company of Heroes 2",
+      "icon": "🪖",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Company of Heroes 3",
+      "name": "Company of Heroes 3",
+      "icon": "🪖",
+      "location": "documents"
+    },
+    {
+      "folder": "Remedy/Control/Default-Epic-User",
+      "name": "Control",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Paradox Interactive/Crusader Kings III",
+      "name": "Crusader Kings III",
+      "icon": "👑",
+      "location": "documents"
+    },
+    {
+      "folder": "Cuphead",
+      "name": "Cuphead",
+      "icon": "☕",
+      "location": "documents"
+    },
+    {
+      "folder": "CD Projekt Red/Cyberpunk 2077",
+      "name": "Cyberpunk 2077",
+      "icon": "🤖",
+      "location": "documents"
+    },
+    {
+      "folder": "NBGI/DarkSouls",
+      "name": "Dark Souls",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "DarkSoulsII",
+      "name": "Dark Souls II",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "DarkSoulsII/{{p|uid",
+      "name": "Dark Souls II: Scholar of the First Sin",
+      "icon": "🔥",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "DARKSOULS III",
+      "name": "Dark Souls III",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "DARK SOULS III",
+      "name": "Dark Souls III",
+      "icon": "🔥",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Darkest/profile_*",
+      "name": "Darkest Dungeon",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "RedHook/Darkest Dungeon II/SaveFiles/{{p|uid",
+      "name": "Darkest Dungeon II",
+      "icon": "🎮",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "Dead Cells",
+      "name": "Dead Cells",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Dead Space (2023)/settings/steam",
+      "name": "Dead Space (2023)",
+      "icon": "🚀",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/505GAMESS.P.A.DeathStranding_tefn33qh9azfc/SystemAppData/xgs/{{P|uid",
+      "name": "Death Stranding",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Deep Rock Galactic",
+      "name": "Deep Rock Galactic",
+      "icon": "⛏️",
+      "location": "documents"
+    },
+    {
+      "folder": "Diablo III",
+      "name": "Diablo III",
+      "icon": "😈",
+      "location": "documents"
+    },
+    {
+      "folder": "Diablo IV",
+      "name": "Diablo IV",
+      "icon": "😈",
+      "location": "documents"
+    },
+    {
+      "folder": "Electronic Arts/The Sims 4",
+      "name": "Die Sims 4",
+      "icon": "🏠",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Divinity Original Sin 2",
+      "name": "Divinity: Original Sin 2",
+      "icon": "🐉",
+      "location": "documents"
+    },
+    {
+      "folder": "Klei/DoNotStarve",
+      "name": "Don't Starve",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "Klei/DoNotStarveTogether",
+      "name": "Don't Starve Together",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "Klei/DoNotStarveTogether",
+      "name": "Don't Starve Together",
+      "icon": "🔥",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Doom Eternal",
+      "name": "Doom Eternal",
+      "icon": "👹",
+      "location": "documents"
+    },
+    {
+      "folder": "BioWare/Dragon Age Inquisition",
+      "name": "Dragon Age: Inquisition",
+      "icon": "🐉",
+      "location": "documents"
+    },
+    {
+      "folder": "BioWare/Dragon Age The Veilguard",
+      "name": "Dragon Age: The Veilguard",
+      "icon": "🐉",
+      "location": "documents"
+    },
+    {
+      "folder": "Bay 12 Games/Dwarf Fortress/save",
+      "name": "Dwarf Fortress",
+      "icon": "🪖",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "DyingLight/out/save/|{{p|userprofile/Documents",
+      "name": "Dying Light",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Dying Light 2",
+      "name": "Dying Light 2",
+      "icon": "🧟",
+      "location": "documents"
+    },
+    {
+      "folder": "EldenRing",
+      "name": "Elden Ring",
+      "icon": "💍",
+      "location": "documents"
+    },
+    {
+      "folder": "Elden Ring",
+      "name": "Elden Ring",
+      "icon": "💍",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Enshrouded",
+      "name": "Enshrouded",
+      "icon": "🌫️",
+      "location": "documents"
+    },
+    {
+      "folder": "Euro Truck Simulator 2",
+      "name": "Euro Truck Simulator 2",
+      "icon": "🚛",
+      "location": "documents"
+    },
+    {
+      "folder": "Paradox Interactive/Europa Universalis IV",
+      "name": "Europa Universalis IV",
+      "icon": "🌍",
+      "location": "documents"
+    },
+    {
+      "folder": "Factorio",
+      "name": "Factorio",
+      "icon": "⚙️",
+      "location": "documents"
+    },
+    {
+      "folder": "factorio",
+      "name": "Factorio",
+      "icon": "⚙️",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Wube Software/Factorio",
+      "name": "Factorio (Saves)",
+      "icon": "⚙️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Fallout3",
+      "name": "Fallout 3",
+      "icon": "☢️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Fallout4",
+      "name": "Fallout 4",
+      "icon": "☢️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/FalloutNV",
+      "name": "Fallout: New Vegas",
+      "icon": "☢️",
+      "location": "documents"
+    },
+    {
+      "folder": "Far Cry 5",
+      "name": "Far Cry 5",
+      "icon": "🏔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Far Cry 6",
+      "name": "Far Cry 6",
+      "icon": "🌴",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Farming Simulator 22",
+      "name": "Farming Simulator 22",
+      "icon": "🚜",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Farming Simulator 25",
+      "name": "Farming Simulator 25",
+      "icon": "🚜",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/FINAL FANTASY VII REMAKE/EOS",
+      "name": "Final Fantasy VII Remake Intergrade",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/FINAL FANTASY XVI",
+      "name": "Final Fantasy XVI",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Sport Interactive/Football Manager 2024",
+      "name": "Football Manager 2024",
+      "icon": "⚽",
+      "location": "documents"
+    },
+    {
+      "folder": "Sport Interactive/Football Manager 2025",
+      "name": "Football Manager 2025",
+      "icon": "⚽",
+      "location": "documents"
+    },
+    {
+      "folder": "FortniteGame",
+      "name": "Fortnite",
+      "icon": "🔫",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Forza Horizon 4",
+      "name": "Forza Horizon 4",
+      "icon": "🏎️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Forza Horizon 5",
+      "name": "Forza Horizon 5",
+      "icon": "🏎️",
+      "location": "documents"
+    },
+    {
+      "folder": "11bitstudios/Frostpunk/Default/saves",
+      "name": "Frostpunk",
+      "icon": "🎮",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "11bitstudios/Frostpunk2/Steam/Saved/SaveGames",
+      "name": "Frostpunk 2",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/FasterThanLight",
+      "name": "FTL: Faster Than Light",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "GodotEngine",
+      "name": "Godot Engine",
+      "icon": "🎮",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Rockstar Games/GTA V/Profiles",
+      "name": "Grand Theft Auto V",
+      "icon": "🚗",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Grounded",
+      "name": "Grounded",
+      "icon": "🐜",
+      "location": "documents"
+    },
+    {
+      "folder": "Hades",
+      "name": "Hades",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "Supergiant Games/Hades",
+      "name": "Hades",
+      "icon": "🔥",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "HadesII",
+      "name": "Hades II",
+      "icon": "🔥",
+      "location": "documents"
+    },
+    {
+      "folder": "Supergiant Games/Hades2",
+      "name": "Hades II",
+      "icon": "🔥",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "My Games/Half-Life Alyx",
+      "name": "Half-Life: Alyx",
+      "icon": "🔫",
+      "location": "documents"
+    },
+    {
+      "folder": "Hearthstone",
+      "name": "Hearthstone",
+      "icon": "🃏",
+      "location": "documents"
+    },
+    {
+      "folder": "Paradox Interactive/Hearts of Iron IV",
+      "name": "Hearts of Iron IV",
+      "icon": "⚙️",
+      "location": "documents"
+    },
+    {
+      "folder": "Arrowhead/Helldivers2/saves",
+      "name": "Helldivers 2",
+      "icon": "🎮",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Packages/BethesdaSoftworks.Hibiki_3275kfvn8vcwc/SystemAppData/wgs",
+      "name": "Hi-Fi Rush",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "IO Interactive/Epic/{{P|uid",
+      "name": "Hitman: World of Assassination",
+      "icon": "🎮",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Hogwarts Legacy",
+      "name": "Hogwarts Legacy",
+      "icon": "🧙",
+      "location": "documents"
+    },
+    {
+      "folder": "Hogwarts Legacy",
+      "name": "Hogwarts Legacy (AppData)",
+      "icon": "🧙",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Hollow Knight",
+      "name": "Hollow Knight",
+      "icon": "🦋",
+      "location": "documents"
+    },
+    {
+      "folder": "Team Cherry/Hollow Knight",
+      "name": "Hollow Knight",
+      "icon": "🦋",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "Horizon Forbidden West Complete Edition/{{p|uid",
+      "name": "Horizon Forbidden West",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Horizon Zero Dawn/Saved Game",
+      "name": "Horizon Zero Dawn",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Into The Breach",
+      "name": "Into the Breach",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "ItTakesTwo/*.Nuts",
+      "name": "It Takes Two",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Kenshi/save",
+      "name": "Kenshi",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Kingdom Come Deliverance",
+      "name": "Kingdom Come: Deliverance",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Lethal Company",
+      "name": "Lethal Company",
+      "icon": "👻",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/Neowiz.3616725F496B_r4z3116tdh636/SystemAppData/wgs/{{P|uid",
+      "name": "Lies of P",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Packages/SEGAofAmericaInc.ProjectElvis_s751p9cej88mt/SystemAppData/wgs/{{P|uid",
+      "name": "Like a Dragon: Infinite Wealth",
+      "icon": "🐉",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "LOTF2/Saved/SaveGames",
+      "name": "Lords of the Fallen (2023)",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "ManorLords/Saved/SaveGames/*.sav",
+      "name": "Manor Lords",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Marvel's Spider-Man Remastered/{{p|uid",
+      "name": "Marvel's Spider-Man Remastered",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Marvel's Spider-Man Miles Morales/{{P|uid",
+      "name": "Marvel's Spider-Man: Miles Morales",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "BioWare/Mass Effect Legendary Edition",
+      "name": "Mass Effect Legendary Edition",
+      "icon": "🚀",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe",
+      "name": "Minecraft (Windows)",
+      "icon": "⛏️",
+      "location": "appdata_local"
+    },
+    {
+      "folder": ".minecraft",
+      "name": "Minecraft Java Edition",
+      "icon": "⛏️",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Packages/F024294D.50755C2F12831_8fty0by30jkny/SystemAppData/wgs/{{P|uid",
+      "name": "Monster Hunter Rise",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Bannerlord",
+      "name": "Mount & Blade II: Bannerlord",
+      "icon": "🏰",
+      "location": "documents"
+    },
+    {
+      "folder": "TaleWorlds/Mount and Blade II Bannerlord",
+      "name": "Mount & Blade II: Bannerlord",
+      "icon": "🏰",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Need for Speed Heat",
+      "name": "Need for Speed Heat",
+      "icon": "🏎️",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/39EA002F.NieRAutomataPC_n746a19ndrrjg/SystemAppData/wgs",
+      "name": "NieR: Automata",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "No Man's Sky",
+      "name": "No Man's Sky",
+      "icon": "🚀",
+      "location": "documents"
+    },
+    {
+      "folder": "Ori and the Blind Forest",
+      "name": "Ori and the Blind Forest",
+      "icon": "🌿",
+      "location": "documents"
+    },
+    {
+      "folder": "Ori and the Blind Forest DE/saveFile*.sav",
+      "name": "Ori and the Blind Forest: Definitive Edition",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Ori and the Will of the Wisps",
+      "name": "Ori and the Will of the Wisps",
+      "icon": "🌿",
+      "location": "documents"
+    },
+    {
+      "folder": "Outer Wilds",
+      "name": "Outer Wilds",
+      "icon": "🪐",
+      "location": "documents"
+    },
+    {
+      "folder": "Overwatch 2",
+      "name": "Overwatch 2",
+      "icon": "🎯",
+      "location": "documents"
+    },
+    {
+      "folder": "Klei/Oxygen Not Included",
+      "name": "Oxygen Not Included",
+      "icon": "🫧",
+      "location": "documents"
+    },
+    {
+      "folder": "Palworld",
+      "name": "Palworld",
+      "icon": "🐾",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/SEGAofAmericaInc.L0cb6b3aea_s751p9cej88mt/SystemAppData/wgs/{{P|uid",
+      "name": "Persona 3 Reload",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Packages/SEGAofAmericaInc.D0cb6b3aet_s751p9cej88mt/SystemAppData/wgs/{{P|uid",
+      "name": "Persona 4 Golden",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Packages/SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt/SystemAppData/wgs/{{P|uid",
+      "name": "Persona 5 Royal",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Phasmophobia",
+      "name": "Phasmophobia",
+      "icon": "👻",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/VersusEvil.PillarsofEternity2-PC_xa16sj1v690xg/SystemAppData/wgs",
+      "name": "Pillars of Eternity II: Deadfire",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Introversion/Prison Architect",
+      "name": "Prison Architect",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Psychonauts2/Saved/SaveGames/*.sav",
+      "name": "Psychonauts 2",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Packages/Microsoft.QuantumBreak_8wekyb3d8bbwe/LocalState/LSAO",
+      "name": "Quantum Break",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Redbeet Interactive/Raft",
+      "name": "Raft",
+      "icon": "🚣",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "ReadyOrNot/Saved/SaveGames",
+      "name": "Ready or Not",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Rockstar Games/Red Dead Redemption 2",
+      "name": "Red Dead Redemption 2",
+      "icon": "🤠",
+      "location": "documents"
+    },
+    {
+      "folder": "Remnant2",
+      "name": "Remnant 2",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w/SystemAppData/wgs/{{P|uid",
+      "name": "Remnant II",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Remnant/Saved",
+      "name": "Remnant: From the Ashes",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Returnal/Steam/Saved/SaveGames",
+      "name": "Returnal",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "RimWorld by Ludeon Studios",
+      "name": "RimWorld",
+      "icon": "🌍",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Rocket League",
+      "name": "Rocket League",
+      "icon": "⚽",
+      "location": "documents"
+    },
+    {
+      "folder": "Rockstar Games/Social Club",
+      "name": "Rockstar Social Club",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Satisfactory",
+      "name": "Satisfactory",
+      "icon": "🏭",
+      "location": "documents"
+    },
+    {
+      "folder": "Coffee Stain Studios/Satisfactory",
+      "name": "Satisfactory (AppData)",
+      "icon": "🏭",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Sekiro",
+      "name": "Sekiro: Shadows Die Twice",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Sid Meier's Civilization 5/Saves",
+      "name": "Sid Meier's Civilization V",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Sid Meier's Civilization VI/Saves",
+      "name": "Sid Meier's Civilization VI",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Sifu/Saved/SaveGames/Sifu*.sav",
+      "name": "Sifu",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "SimCity",
+      "name": "SimCity",
+      "icon": "🏙️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Skyrim Special Edition",
+      "name": "Skyrim Special Edition",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/HumbleBundle.SlayTheSpire_q2mcdwmzx4qja/LocalCache/Local/Microsoft/WritablePackageRoot/saves",
+      "name": "Slay the Spire",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "SniperElite4/PC_ProfileSaves",
+      "name": "Sniper Elite 4",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Sniper Elite 5/PC_ProfileSaves",
+      "name": "Sniper Elite 5",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Snowrunner",
+      "name": "SnowRunner",
+      "icon": "🚛",
+      "location": "documents"
+    },
+    {
+      "folder": "Endnight/SonsOfTheForest",
+      "name": "Sons of the Forest",
+      "icon": "🌲",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "StarCraft II",
+      "name": "StarCraft II",
+      "icon": "🌌",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Stardew Valley",
+      "name": "Stardew Valley",
+      "icon": "🌾",
+      "location": "documents"
+    },
+    {
+      "folder": "StardewValley",
+      "name": "Stardew Valley",
+      "icon": "🌾",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "ConcernedApe/Stardew Valley",
+      "name": "Stardew Valley",
+      "icon": "🌾",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "My Games/Starfield",
+      "name": "Starfield",
+      "icon": "🚀",
+      "location": "documents"
+    },
+    {
+      "folder": "Paradox Interactive/Stellaris",
+      "name": "Stellaris",
+      "icon": "🌌",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Subnautica",
+      "name": "Subnautica",
+      "icon": "🐠",
+      "location": "documents"
+    },
+    {
+      "folder": "TEKKEN 8/Saved/SaveGames",
+      "name": "Tekken 8",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Terraria",
+      "name": "Terraria",
+      "icon": "⛏️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Morrowind",
+      "name": "The Elder Scrolls III: Morrowind",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Oblivion",
+      "name": "The Elder Scrolls IV: Oblivion",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Skyrim",
+      "name": "The Elder Scrolls V: Skyrim",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Skyrim Special Edition GOG/Saves",
+      "name": "The Elder Scrolls V: Skyrim Special Edition",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/The Forest",
+      "name": "The Forest",
+      "icon": "🌲",
+      "location": "documents"
+    },
+    {
+      "folder": "Electronic Arts/The Sims 4/saves",
+      "name": "The Sims 4",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "The Surge 2/save",
+      "name": "The Surge 2",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Talos2/Saved/SaveGames",
+      "name": "The Talos Principle 2",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "The Witcher 3",
+      "name": "The Witcher 3: Wild Hunt",
+      "icon": "🐺",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/They Are Billions",
+      "name": "They Are Billions",
+      "icon": "🧟",
+      "location": "documents"
+    },
+    {
+      "folder": "Thunderstore",
+      "name": "Thunderstore Mod Manager",
+      "icon": "🔧",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Respawn/Titanfall2/profile/savegames",
+      "name": "Titanfall 2",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Total War Saga",
+      "name": "Total War Saga",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "The Creative Assembly/ThreeKingdoms/save_games",
+      "name": "Total War: Three Kingdoms",
+      "icon": "🪖",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "The Creative Assembly/Warhammer3",
+      "name": "Total War: Warhammer III",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "Ronin/Saved/SaveGames",
+      "name": "Trek to Yomi",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "My Games/Tropico6/Saved/SaveGames",
+      "name": "Tropico 6",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "Packages/Finji.TUNIC_tys0ffscxatjj/SystemAppData/wgs",
+      "name": "Tunic",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "Packages/7904SEGAEuropeLtd.TwoPointHospital-GamePass_zs7esxpzd8d5c/SystemAppData/wgs/{{P|uid",
+      "name": "Two Point Hospital",
+      "icon": "🎮",
+      "location": "appdata_local"
+    },
+    {
+      "folder": "unity3d",
+      "name": "Unity-Spiele (Allgemein)",
+      "icon": "🎮",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "My Games/Unreal Tournament 3",
+      "name": "Unreal Tournament 3",
+      "icon": "🔫",
+      "location": "documents"
+    },
+    {
+      "folder": "Stunlock Studios/VRising/CloudSaves",
+      "name": "V Rising",
+      "icon": "🎮",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "Valheim",
+      "name": "Valheim",
+      "icon": "🪓",
+      "location": "documents"
+    },
+    {
+      "folder": "IronGate/Valheim",
+      "name": "Valheim",
+      "icon": "🪓",
+      "location": "appdata_locallow"
+    },
+    {
+      "folder": "Vampire_Survivors/saves",
+      "name": "Vampire Survivors",
+      "icon": "🎮",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "Paradox Interactive/Victoria 3",
+      "name": "Victoria 3",
+      "icon": "🏭",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/Warframe",
+      "name": "Warframe",
+      "icon": "🤖",
+      "location": "documents"
+    },
+    {
+      "folder": "Fatshark/Darktide",
+      "name": "Warhammer 40K: Darktide",
+      "icon": "⚔️",
+      "location": "appdata_roaming"
+    },
+    {
+      "folder": "My Games/Wasteland3/Save Games",
+      "name": "Wasteland 3",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "KoeiTecmo/Wolong/Savedata/{{P|uid",
+      "name": "Wo Long: Fallen Dynasty",
+      "icon": "🎮",
+      "location": "documents"
+    },
+    {
+      "folder": "World of Warcraft",
+      "name": "World of Warcraft",
+      "icon": "⚔️",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/XCOM2",
+      "name": "XCOM 2",
+      "icon": "👽",
+      "location": "documents"
+    },
+    {
+      "folder": "My Games/XCOM - Enemy Within",
+      "name": "XCOM: Enemy Within",
+      "icon": "👽",
+      "location": "documents"
+    }
   ]
 }
