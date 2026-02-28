@@ -1,11 +1,6 @@
 """
-PCGamingWiki Game Save Location Scraper v2
-Scrapt beliebte Spiele von PCGamingWiki und extrahiert Save-Pfade.
-Wird als GitHub Action 1x pro Woche ausgeführt.
-
-Format auf PCGamingWiki:
-  {{Game data/saves|Windows|{{p|userprofile\Documents}}\My Games\Skyrim\Saves\}}
-  {{Game data/saves|Windows|{{p|localappdata}}\Elden Ring\}}
+PCGamingWiki Game Save Location Scraper v3
+Fixes: Handles Steam/Windows/MS Store paths, {{P|game}}, case-insensitive templates
 """
 
 import json
@@ -19,26 +14,20 @@ from datetime import date
 API_URL = "https://www.pcgamingwiki.com/w/api.php"
 OUTPUT_FILE = "gamesaves.json"
 
-# PCGamingWiki {{p|...}} Templates → unsere Location-Typen
-P_MAPPINGS = {
-    "userprofile\\documents": ("documents", ""),
-    "userprofile/documents": ("documents", ""),
-    "userprofile\\my documents": ("documents", ""),
-    "userprofile/my documents": ("documents", ""),
-    "userprofile\\saved games": ("documents", "Saved Games/"),
-    "localappdata": ("appdata_local", ""),
-    "appdata": ("appdata_roaming", ""),
-    "locallow": ("appdata_locallow", ""),
+# {{p|...}} / {{P|...}} → Location mapping
+P_VARS = {
+    "userprofile\\documents": "documents",
+    "userprofile/documents": "documents",
+    "userprofile\\my documents": "documents",
+    "localappdata": "appdata_local",
+    "appdata": "appdata_roaming",
+    "locallow": "appdata_locallow",
+    "userprofile\\appdata\\local": "appdata_local",
+    "userprofile\\appdata\\roaming": "appdata_roaming",
+    "userprofile\\appdata\\locallow": "appdata_locallow",
+    "userprofile\\saved games": "documents",
 }
 
-GENRE_ICONS = {
-    "rpg": "⚔️", "action": "🎮", "shooter": "🔫", "strategy": "🏰",
-    "simulation": "🚜", "racing": "🏎️", "horror": "👻", "survival": "🌲",
-    "puzzle": "🧩", "platformer": "🍄", "adventure": "🗺️", "sports": "⚽",
-    "sandbox": "⛏️", "mmo": "🌍", "rhythm": "🎵",
-}
-
-# Liste populärer Spiele die garantiert Save-Pfade haben
 POPULAR_GAMES = [
     "Elden Ring", "Baldur's Gate 3", "Cyberpunk 2077", "Starfield",
     "Hogwarts Legacy", "Palworld", "Lethal Company", "Helldivers 2",
@@ -46,169 +35,205 @@ POPULAR_GAMES = [
     "Armored Core VI: Fires of Rubicon", "Resident Evil 4 (2023)",
     "Dead Space (2023)", "Hi-Fi Rush", "Wo Long: Fallen Dynasty",
     "The Last of Us Part I", "Returnal", "God of War Ragnarök",
-    "Spider-Man Remastered", "Spider-Man: Miles Morales",
+    "Marvel's Spider-Man Remastered", "Marvel's Spider-Man: Miles Morales",
     "Horizon Zero Dawn", "Horizon Forbidden West", "Death Stranding",
     "Red Dead Redemption 2", "Grand Theft Auto V",
     "The Witcher 3: Wild Hunt", "Cyberpunk 2077",
     "The Elder Scrolls V: Skyrim", "The Elder Scrolls V: Skyrim Special Edition",
     "Fallout 4", "Fallout: New Vegas", "Fallout 3", "Starfield",
     "Dark Souls III", "Dark Souls II: Scholar of the First Sin", "Dark Souls: Remastered",
-    "Sekiro: Shadows Die Twice", "Elden Ring",
+    "Sekiro: Shadows Die Twice",
     "Minecraft", "Terraria", "Stardew Valley", "Valheim",
     "Subnautica", "Subnautica: Below Zero", "No Man's Sky",
     "Hades", "Hades II", "Hollow Knight", "Celeste", "Cuphead",
-    "Dead Cells", "Ori and the Blind Forest", "Ori and the Will of the Wisps",
+    "Dead Cells", "Ori and the Blind Forest: Definitive Edition",
+    "Ori and the Will of the Wisps",
     "Disco Elysium", "Divinity: Original Sin 2",
     "Cities: Skylines", "Cities: Skylines II",
     "Sid Meier's Civilization VI", "Sid Meier's Civilization V",
     "Crusader Kings III", "Europa Universalis IV", "Hearts of Iron IV",
     "Stellaris", "Victoria 3", "Total War: Warhammer III",
     "RimWorld", "Factorio", "Satisfactory", "Oxygen Not Included",
-    "Anno 1800", "Age of Empires IV", "Age of Empires II: Definitive Edition",
+    "Anno 1800", "Age of Empires IV",
+    "Age of Empires II: Definitive Edition",
     "Mount & Blade II: Bannerlord", "Kingdom Come: Deliverance",
     "The Sims 4", "Planet Zoo", "Planet Coaster",
     "Euro Truck Simulator 2", "American Truck Simulator",
     "Farming Simulator 22", "Farming Simulator 25",
-    "Microsoft Flight Simulator (2020)", "Forza Horizon 5", "Forza Horizon 4",
+    "Forza Horizon 5", "Forza Horizon 4",
     "Resident Evil Village", "Resident Evil 2 (2019)",
     "Monster Hunter: World", "Monster Hunter Rise",
     "Assassin's Creed Valhalla", "Assassin's Creed Odyssey",
+    "Assassin's Creed Origins", "Assassin's Creed Mirage",
     "Far Cry 6", "Far Cry 5", "Watch Dogs: Legion",
     "Mass Effect Legendary Edition", "Dragon Age: Inquisition",
-    "Borderlands 3", "Borderlands 2", "Tiny Tina's Wonderlands",
-    "Doom Eternal", "Doom (2016)", "Wolfenstein II: The New Colossus",
+    "Borderlands 3", "Borderlands 2",
+    "Doom Eternal", "Doom (2016)",
     "Control", "Alan Wake Remastered", "Quantum Break",
     "Dying Light 2: Stay Human", "Dying Light",
     "The Forest", "Sons of the Forest",
     "Deep Rock Galactic", "Sea of Thieves", "Grounded",
-    "It Takes Two", "A Way Out",
+    "It Takes Two",
     "Persona 5 Royal", "Persona 4 Golden", "Persona 3 Reload",
     "Final Fantasy VII Remake Intergrade", "Final Fantasy XVI",
-    "NieR: Automata", "NieR Replicant ver.1.22474487139...",
+    "NieR: Automata",
     "Metal Gear Solid V: The Phantom Pain",
-    "Devil May Cry 5", "Bayonetta",
-    "Phasmophobia", "Among Us", "Fall Guys",
+    "Devil May Cry 5",
+    "Phasmophobia", "Among Us",
     "Rocket League", "Apex Legends",
     "Path of Exile", "Diablo IV", "Diablo III",
-    "World of Warcraft", "Guild Wars 2",
     "Football Manager 2024", "Football Manager 2025",
-    "FIFA 24", "EA Sports FC 25",
     "Outer Wilds", "Inscryption", "Slay the Spire",
     "Darkest Dungeon", "Darkest Dungeon II",
     "Into the Breach", "FTL: Faster Than Light",
-    "Warhammer 40,000: Darktide", "Warhammer: Vermintide 2",
-    "Total War: Three Kingdoms", "Total War: Rome II",
+    "Total War: Three Kingdoms",
     "Prison Architect", "Frostpunk", "Frostpunk 2",
-    "Tropico 6", "Two Point Hospital", "Two Point Campus",
-    "Pillars of Eternity", "Pillars of Eternity II: Deadfire",
-    "Pathfinder: Wrath of the Righteous", "Pathfinder: Kingmaker",
-    "Wasteland 3", "XCOM 2", "Phoenix Point",
-    "Ghostrunner", "Ultrakill", "Vampire Survivors",
-    "Dave the Diver", "Dredge", "Tunic",
-    "Ready or Not", "Ground Branch", "Arma 3",
+    "Tropico 6", "Two Point Hospital",
+    "Pillars of Eternity II: Deadfire",
+    "Pathfinder: Wrath of the Righteous",
+    "Wasteland 3", "XCOM 2",
+    "Vampire Survivors", "Dave the Diver", "Tunic",
+    "Ready or Not", "Arma 3",
     "Kenshi", "Dwarf Fortress",
     "Manor Lords", "Against the Storm",
     "Enshrouded", "V Rising",
-    "Wuthering Waves", "Genshin Impact",
-    "Like a Dragon: Infinite Wealth", "Yakuza: Like a Dragon",
+    "Like a Dragon: Infinite Wealth",
     "Star Wars Jedi: Survivor", "Star Wars Jedi: Fallen Order",
-    "Titanfall 2", "Battlefield V", "Battlefield 2042",
-    "Call of Duty: Modern Warfare II (2022)", "Call of Duty: Black Ops III",
-    "Counter-Strike 2",
-    "Tom Clancy's Rainbow Six Siege", "Tom Clancy's Ghost Recon Breakpoint",
-    "Hitman: World of Assassination", "Hitman 2",
-    "Just Cause 4", "Just Cause 3",
-    "Saints Row (2022)", "Saints Row IV",
+    "Titanfall 2",
+    "Hitman: World of Assassination",
     "Sniper Elite 5", "Sniper Elite 4",
     "Prey (2017)", "Dishonored 2", "Deathloop",
-    "BioShock Infinite", "BioShock Remastered",
-    "System Shock (2023)",
+    "System Shock (2023)", "Black Myth: Wukong",
+    "Wuthering Waves", "Genshin Impact",
+    "The Talos Principle 2", "Portal 2",
+    "Half-Life 2", "Half-Life: Alyx",
+    "Psychonauts 2", "A Plague Tale: Requiem",
+    "Sifu", "Trek to Yomi",
+    "Uncharted: Legacy of Thieves Collection",
+    "Nioh 2", "Nioh",
+    "The Surge 2", "Lords of the Fallen (2023)",
+    "Mortal Kombat 1", "Street Fighter 6",
+    "Tekken 8", "Guilty Gear -Strive-",
+    "Palworld", "Enshrouded", "Nightingale",
+    "Skull and Bones", "Banishers: Ghosts of New Eden",
 ]
+ICONS = {
+    "rpg": "⚔️", "action": "🎮", "shooter": "🔫", "strategy": "🏰",
+    "simulation": "🚜", "racing": "🏎️", "horror": "👻", "survival": "🌲",
+    "puzzle": "🧩", "platform": "🍄", "adventure": "🗺️", "sport": "⚽",
+    "sandbox": "⛏️", "souls": "🔥", "dragon": "🐉", "space": "🚀",
+    "war": "🪖", "truck": "🚛", "farm": "🚜", "city": "🏙️", "craft": "⛏️",
+}
 
 
-def api_request(params):
-    """API-Anfrage an PCGamingWiki."""
+def api_req(params):
     params["format"] = "json"
     url = f"{API_URL}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"User-Agent": "BackupPro-GameSaveDB/2.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "BackupPro/3.0"})
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return json.loads(resp.read().decode("utf-8"))
+        with urllib.request.urlopen(req, timeout=15) as r:
+            return json.loads(r.read().decode("utf-8"))
     except Exception as e:
-        print(f"  API Fehler: {e}")
         return None
 
 
-def get_save_section(title):
-    """Holt den 'Save game data location' Abschnitt."""
-    # Erst Sections holen
-    data = api_request({
-        "action": "parse", "page": title, "prop": "sections"
-    })
+def get_save_wikitext(title):
+    """Holt den gesamten Game-data-Abschnitt und sucht nach Save-Daten."""
+    # Erst alle Sections holen
+    data = api_req({"action": "parse", "page": title, "prop": "sections"})
     if not data or "parse" not in data:
         return None
 
-    save_section = None
-    for section in data["parse"].get("sections", []):
-        line = section.get("line", "").lower()
+    # "Game data" Hauptsection finden (enthält config + save subsections)
+    game_data_idx = None
+    save_idx = None
+    for s in data["parse"].get("sections", []):
+        line = s.get("line", "").lower()
+        idx = s.get("index", "")
+        if not idx:
+            continue
         if "save" in line and ("game" in line or "data" in line or "location" in line):
-            save_section = section.get("index")
+            save_idx = idx
             break
+        if line == "game data":
+            game_data_idx = idx
 
-    if not save_section:
+    target = save_idx or game_data_idx
+    if not target:
         return None
 
     # Section-Inhalt holen
-    data2 = api_request({
+    data2 = api_req({
         "action": "query", "titles": title,
         "prop": "revisions", "rvprop": "content",
-        "rvslots": "main", "rvsection": save_section
+        "rvslots": "main", "rvsection": target
     })
     if not data2 or "query" not in data2:
         return None
 
-    pages = data2["query"].get("pages", {})
-    for page in pages.values():
+    for page in data2["query"].get("pages", {}).values():
         revs = page.get("revisions", [])
         if revs:
-            return revs[0].get("slots", {}).get("main", {}).get("*", "")
+            text = revs[0].get("slots", {}).get("main", {}).get("*", "")
+            # Wenn wir "game data" geholt haben, ist save ein Unterabschnitt
+            if "Game data/saves" in text or "Game data/save" in text:
+                return text
     return None
 
 
-def parse_save_path(wikitext, game_name):
-    """Extrahiert Save-Pfad aus dem Wikitext."""
+def parse_paths(wikitext, game_name):
+    """Extrahiert ALLE Save-Pfade aus dem Wikitext."""
     if not wikitext:
         return None
 
-    # Pattern: {{Game data/saves|Windows|{{p|userprofile\Documents}}\My Games\Skyrim\Saves\}}
-    pattern = r'\{\{Game data/saves?\|Windows\|(.+?)(?:\}\})'
-    matches = re.findall(pattern, wikitext, re.IGNORECASE)
+    # Finde alle {{Game data/saves|PLATFORM|PATH}} Einträge
+    # Case-insensitive, mit verschachtelten {{...}}
+    results = []
 
-    for match in matches:
-        path = match.strip()
+    # Alle Zeilen mit Game data/saves durchgehen
+    for line in wikitext.split("\n"):
+        if "Game data/saves" not in line and "Game data/save" not in line:
+            continue
 
-        # {{p|...}} Template auflösen
-        p_match = re.search(r'\{\{p\|([^}]+)\}\}(.*)$', path, re.IGNORECASE)
+        # Platform erkennen (Windows, Steam, Microsoft Store, etc.)
+        platform_match = re.search(r'Game data/saves?\|([^|]+)\|', line, re.IGNORECASE)
+        if not platform_match:
+            continue
+        platform = platform_match.group(1).strip()
+
+        # Nur Windows-kompatible Plattformen
+        if platform.lower() not in ("windows", "steam", "microsoft store",
+                                      "epic games store", "gog.com", "ubisoft connect"):
+            continue
+
+        # Pfad extrahieren - alles nach dem zweiten |
+        path_part = line.split("|", 2)
+        if len(path_part) < 3:
+            continue
+        raw_path = path_part[2].rstrip("}").strip()
+
+        # {{p|...}} oder {{P|...}} auflösen
+        p_match = re.search(r'\{\{[pP]\|([^}]+)\}\}(.*?)(?:\}\}|$)', raw_path)
         if not p_match:
             continue
 
-        p_var = p_match.group(1).strip().lower()
-        remainder = p_match.group(2).strip().strip("\\/ ")
+        p_var = p_match.group(1).strip().lower().replace("/", "\\")
+        remainder = p_match.group(2).strip().rstrip("}").strip("\\ /")
+
+        # Skip {{p|uid}}, {{p|steam}}, {{p|game}} ohne echten Pfad
+        if p_var in ("uid", "steam"):
+            continue
+
+        # {{P|game}} = Steam-Installationsordner - ignorieren (nicht user-spezifisch)
+        if p_var == "game":
+            continue
 
         # Location bestimmen
-        location = None
-        prefix = ""
-        for key, (loc, pref) in P_MAPPINGS.items():
-            if p_var == key or p_var.replace("/", "\\") == key:
-                location = loc
-                prefix = pref
-                break
-
+        location = P_VARS.get(p_var)
         if not location:
-            # Fallback-Erkennung
             if "document" in p_var:
                 location = "documents"
-            elif "localappdata" in p_var or "local app" in p_var:
+            elif "localappdata" in p_var or "local" == p_var:
                 location = "appdata_local"
             elif "locallow" in p_var:
                 location = "appdata_locallow"
@@ -217,25 +242,24 @@ def parse_save_path(wikitext, game_name):
             else:
                 continue
 
-        if not remainder:
+        if not remainder or len(remainder) < 2:
             continue
 
         # Bereinigung
-        folder = prefix + remainder.replace("\\", "/").strip("/")
-        # Wiki-Reste entfernen
-        folder = re.sub(r'\{\{[^}]*\}\}', '', folder).strip("/")
+        folder = remainder.replace("\\\\", "/").replace("\\", "/").strip("/")
+        # Nested templates entfernen: {{P|uid}}, {{p|...}}
+        folder = re.sub(r'\{\{[pP]\|[^}]*\}\}', '', folder).strip("/")
+        folder = re.sub(r'\}\}', '', folder).strip("/")
         folder = re.sub(r'<[^>]+>', '', folder).strip("/")
         folder = folder.rstrip("/")
 
         if len(folder) < 2:
             continue
 
-        icon = get_icon(game_name)
-
         return {
             "folder": folder,
             "name": game_name,
-            "icon": icon,
+            "icon": get_icon(game_name),
             "location": location
         }
 
@@ -243,48 +267,16 @@ def parse_save_path(wikitext, game_name):
 
 
 def get_icon(name):
-    """Emoji basierend auf Spielname."""
     n = name.lower()
-    for kw, icon in GENRE_ICONS.items():
+    for kw, icon in ICONS.items():
         if kw in n:
             return icon
     return "🎮"
 
 
-def get_category_games(limit=300):
-    """Holt Spiele aus beliebten Kategorien."""
-    games = set()
-    categories = [
-        "Category:Games_with_Gold_rating",
-        "Category:Games_with_Silver_rating",
-    ]
-    for cat in categories:
-        cont = None
-        while len(games) < limit:
-            params = {
-                "action": "query", "list": "categorymembers",
-                "cmtitle": cat, "cmlimit": "50", "cmtype": "page"
-            }
-            if cont:
-                params["cmcontinue"] = cont
-            data = api_request(params)
-            if not data or "query" not in data:
-                break
-            for m in data["query"].get("categorymembers", []):
-                t = m.get("title", "")
-                if t and ":" not in t:
-                    games.add(t)
-            if "continue" in data:
-                cont = data["continue"].get("cmcontinue")
-            else:
-                break
-            time.sleep(0.5)
-    return list(games)
-
-
 def main():
     print("=" * 60)
-    print("PCGamingWiki Game Save Scraper v2")
+    print("PCGamingWiki Game Save Scraper v3")
     print("=" * 60)
 
     db = {"version": "1.0.0", "updated": "", "games": []}
@@ -295,15 +287,8 @@ def main():
     existing = {g["name"].lower() for g in db["games"]}
     print(f"Existierend: {len(db['games'])} Spiele")
 
-    # Beliebte Spiele + Kategorie-Spiele kombinieren
     all_games = list(dict.fromkeys(POPULAR_GAMES))
-    print(f"Prüfe {len(all_games)} populäre Spiele...")
-
-    cat_games = get_category_games(200)
-    print(f"+ {len(cat_games)} Spiele aus Wiki-Kategorien")
-    for g in cat_games:
-        if g not in all_games:
-            all_games.append(g)
+    print(f"Prüfe {len(all_games)} Spiele...")
 
     new_count = 0
     for i, title in enumerate(all_games):
@@ -312,24 +297,23 @@ def main():
 
         print(f"  [{i+1}/{len(all_games)}] {title}...", end=" ", flush=True)
 
-        wikitext = get_save_section(title)
+        wikitext = get_save_wikitext(title)
         if not wikitext:
             print("❌ Kein Save-Abschnitt")
             time.sleep(0.5)
             continue
 
-        result = parse_save_path(wikitext, title)
+        result = parse_paths(wikitext, title)
         if result:
             db["games"].append(result)
             existing.add(title.lower())
             new_count += 1
             print(f"✅ {result['location']}: {result['folder']}")
         else:
-            print(f"❌ Pfad nicht parsbar")
+            print(f"⚠️ Nur Steam/Cloud (kein lokaler Pfad)")
 
         time.sleep(1)
 
-    # Sortieren + speichern
     db["games"].sort(key=lambda g: g["name"].lower())
     db["updated"] = str(date.today())
     v = db.get("version", "1.0.0").split(".")
