@@ -1,6 +1,6 @@
 {
-  "version": "1.0.26",
-  "updated": "2026-08-16",
+  "version": "1.0.27",
+  "updated": "2026-08-23",
   "games": [
     {
       "folder": "GOG.com/Galaxy/Applications/55243620139303375/Storage/Shared/Files",
@@ -625,6 +625,12 @@
       "name": "Horizon Zero Dawn",
       "icon": "🎮",
       "location": "documents"
+    },
+    {
+      "folder": "Packages/DevolverDigital.Inscryption_6kzv4j18v0c96/SystemAppData/wgs",
+      "name": "Inscryption",
+      "icon": "🎮",
+      "location": "appdata_local"
     },
     {
       "folder": "My Games/Into The Breach",
